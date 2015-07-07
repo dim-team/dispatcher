@@ -31,7 +31,7 @@ var Dispatcher = {
     },
     onPageChange: function () {
         var hash, id, action = 'index', datas = {};
-        hash = location.hash.replace(/^#/, '').split('?');
+        hash = location.hash.replace(/^#/, '').split(/\&|\?/);
         id = hash[0] || runtime.config.defaultPage;
         if(id.indexOf('/') > -1){
             var tmp = id.split('/');
