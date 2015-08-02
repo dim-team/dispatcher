@@ -38,7 +38,9 @@ var Dispatcher = {
             id = tmp[0];
             action = tmp[1];
         }
-        $.each((hash[1] || '').split('&'), function (_, o) {
+
+        var queryPath = location.hash.replace(/^#/, '').split(/\?/)[1];
+        $.each((queryPath || '').split('&'), function (_, o) {
             var queryItem = o.split('=');
             if (queryItem[0] && queryItem[1]) {
                 datas[queryItem[0]] = queryItem[1];
